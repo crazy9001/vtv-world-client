@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AdminRoutingModule} from './admin-routing/admin-routing.module';
 import {AdminComponent} from './admin.component';
@@ -21,6 +21,7 @@ import { AdminControlSidebarComponent } from './admin-control-sidebar/admin-cont
         AdminDashboardComponent,
         AdminControlSidebarComponent
     ],
-    exports: [AdminComponent]
+
+    exports: [AdminComponent],
 })
 export class AdminModule { }

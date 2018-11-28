@@ -5,6 +5,9 @@ import {AdminComponent} from '../admin.component';
 import {AdminDashboardComponent} from '../admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './../../guard/auth.guard';
 import {VideosComponent} from '../../videos/videos.component';
+import {ManagersComponent} from '../../managers/managers.component';
+import {UsersComponent} from '../../managers/users/users.component';
+import {CategoriesComponent} from '../../managers/categories/categories.component';
 
 @NgModule({
     imports: [
@@ -26,10 +29,29 @@ import {VideosComponent} from '../../videos/videos.component';
                     },
                     {
                         path: 'VideosManager',
-                        component: VideosComponent
+                        component: VideosComponent,
+                    },
+                    {
+                        path: 'Manager',
+                        component: ManagersComponent,
+                        children: [
+                            {
+                                path: '',
+                                redirectTo: 'UserManager',
+                                pathMatch: 'full'
+                            },
+                            {
+                                path: 'UserManager',
+                                component: UsersComponent,
+                            },
+                            {
+                                path: 'CategoryManager',
+                                component: CategoriesComponent,
+                            }
+                        ]
                     }
                 ]
-            }
+            },
         ])
     ],
     exports: [
