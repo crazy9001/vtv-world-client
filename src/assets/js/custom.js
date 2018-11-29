@@ -224,4 +224,8 @@ $(document).ready(function () {
     $(window).on("resize", function () {
         $(".mega-nav > .nav-second-level").width($(window).width());
     });
+
+    $('.scrollable').slimScroll({
+        height: '400px'
+    });
 });

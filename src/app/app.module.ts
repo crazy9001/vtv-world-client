@@ -8,6 +8,7 @@ import {AuthModule} from './auth/auth.module';
 import {VideosComponent} from './videos/videos.component';
 import {ManagersModule} from './managers/managers.module';
 import {TokenInterceptor} from './auth/intercreptors/token.intercreptor';
+import {RefreshTokenInterceptor} from './auth/intercreptors/refreshToken.intercreptor';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,10 @@ import {TokenInterceptor} from './auth/intercreptors/token.intercreptor';
     providers: [
         {
             provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor,
+            multi: true
         },
     ],
     bootstrap: [AppComponent]
